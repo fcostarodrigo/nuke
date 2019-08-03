@@ -1,5 +1,6 @@
 # NUKE
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e122e150123e44fe86bd46bd1d8aed1a)](https://app.codacy.com/app/fcostarodrigo/nuke?utm_source=github.com&utm_medium=referral&utm_content=fcostarodrigo/nuke&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/fcostarodrigo/nuke.svg?branch=master)](https://travis-ci.org/fcostarodrigo/nuke)
 [![codecov](https://codecov.io/gh/fcostarodrigo/nuke/branch/master/graph/badge.svg)](https://codecov.io/gh/fcostarodrigo/nuke)
 
