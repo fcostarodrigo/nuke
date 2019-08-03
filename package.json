@@ -1,0 +1,46 @@
+{
+  "name": "rfc-nuke",
+  "version": "2.0.3",
+  "description": "Remove files and folders recursively",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest unit int --coverage",
+    "pretest": "eslint src",
+    "unit-test": "jest unit --watch",
+    "format": "pretty-quick"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcostarodrigo/rfc-nuke.git"
+  },
+  "keywords": [
+    "remove",
+    "files",
+    "recursively",
+    "rm -rf"
+  ],
+  "author": "Rodrigo Fernandes da Costa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fcostarodrigo/rfc-nuke/issues"
+  },
+  "homepage": "https://github.com/fcostarodrigo/rfc-nuke#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.14.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
+  },
+  "dependencies": {
+    "@fcostarodrigo/walk": "^4.0.1"
+  }
+}
