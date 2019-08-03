@@ -1,6 +1,6 @@
 {
   "name": "rfc-nuke",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Remove files and folders recursively",
   "main": "src/index.js",
   "scripts": {
