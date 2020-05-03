@@ -14,6 +14,21 @@ npm install @fcostarodrigo/nuke
 
 ## Usage
 
+### In terminal
+
+```
+cli.js <pathToDelete>
+
+Positionals:
+  pathToDelete  String with the path to delete                          [string]
+
+Options:
+  --help     Show help                                                 [boolean]
+  --version  Show version number                                       [boolean]
+```
+
+### As a library
+
 ```javascript
 const nuke = require("@fcostarodrigo/nuke");
 
