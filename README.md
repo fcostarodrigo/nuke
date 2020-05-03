@@ -27,27 +27,19 @@ main();
 
 ## Documentation
 
-```typescript
-function nuke(pathToDelete: string): Promise<void>;
+```javascript
+nuke(pathToDelete, walk, unlink, rmdir);
 ```
-
-Removes files and folders recursively.
 
 `pathToDelete`: Path with folder or file to delete.
 
-## Development
+`walk`: Optional function to transverse the file system, defaults to `@fcostarodrigo/walk`.
 
-Full tests with coverage
+`unlink`: Optional function to remove files, defaults to `fs.promises.unlink`.
 
-```bash
-npm test
-```
+`rmdir`: Optional function to remove folders, defaults to `fs.promises.rmdir`.
 
-Unit tests and watch for changes
-
-```bash
-npm run unit-test
-```
+Returns a promise that resolves with nothing after the path has been deleted.
 
 ## License
 

@@ -2,36 +2,38 @@ const fs = require("fs");
 const path = require("path");
 const nuke = require("./nuke");
 
+const mkdir = (folder) => fs.promises.mkdir(folder);
+const rmdir = (folder) => fs.promises.rmdir(folder);
+const writeFile = (file, body = "file") => fs.promises.writeFile(file, body);
+const unlink = (file) => fs.promises.unlink(file);
+const access = (file) => fs.promises.access(file);
+const join = (...paths) => path.join(...paths);
+
 describe("nuke", () => {
   const testDir = path.join(__dirname, "..", "tests");
-  const ignoreError = () => {};
-  const folders = [testDir, path.join(testDir, "folderC")];
-  const files = [
-    path.join(testDir, "fileA"),
-    path.join(testDir, "fileB"),
-    path.join(testDir, "folderC", "fileC"),
-  ];
 
   beforeEach(async () => {
-    for (const folder of folders) {
-      await fs.promises.mkdir(folder).catch(ignoreError);
-    }
-    for (const file of files) {
-      await fs.promises.writeFile(file, "file").catch(ignoreError);
-    }
+    try {
+      await mkdir(testDir);
+      await mkdir(join(testDir, "folderC"));
+      await writeFile(join(testDir, "fileA"));
+      await writeFile(join(testDir, "fileB"));
+      await writeFile(join(testDir, "folderC", "fileC"));
+    } catch (error) {} // eslint-disable-line no-empty
   });
 
   it("should remove folders with files inside", async () => {
     await nuke(testDir);
-    return expect(fs.promises.access(testDir)).rejects.toThrow();
+    return expect(access(testDir)).rejects.toThrow();
   });
 
   afterEach(async () => {
-    for (const file of files) {
-      await fs.promises.unlink(file, "file").catch(ignoreError);
-    }
-    for (const folder of folders.reverse()) {
-      await fs.promises.rmdir(folder).catch(ignoreError);
-    }
+    try {
+      await unlink(join(testDir, "folderC", "fileC"));
+      await unlink(join(testDir, "fileB"));
+      await unlink(join(testDir, "fileA"));
+      await rmdir(join(testDir, "folderC"));
+      await rmdir(testDir);
+    } catch (error) {} // eslint-disable-line no-empty
   });
 });
