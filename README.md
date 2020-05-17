@@ -17,7 +17,7 @@ npm install @fcostarodrigo/nuke
 ### In terminal
 
 ```
-cli.js <pathToDelete>
+cli <pathToDelete>
 
 Positionals:
   pathToDelete  String with the path to delete                          [string]
