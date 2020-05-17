@@ -1,0 +1,16 @@
+extends:
+  - airbnb-base
+  - plugin:jest/recommended
+  - prettier
+plugins:
+  - prettier
+  - jest
+  - tsc
+rules:
+  no-continue: off
+  no-await-in-loop: off
+  no-restricted-syntax: off
+  prettier/prettier: error
+  tsc/config:
+    - error
+    - configFile: tsconfig.json

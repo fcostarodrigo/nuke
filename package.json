@@ -1,17 +1,16 @@
 {
-  "name": "rfc-nuke",
-  "version": "2.0.3",
+  "name": "nuke",
+  "version": "2.1.0",
   "description": "Remove files and folders recursively",
-  "main": "src/index.js",
+  "main": "src/nuke.js",
   "scripts": {
     "test": "jest unit int --coverage",
     "pretest": "eslint src",
-    "unit-test": "jest unit --watch",
-    "format": "pretty-quick"
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fcostarodrigo/rfc-nuke.git"
+    "url": "git+https://github.com/fcostarodrigo/nuke.git"
   },
   "keywords": [
     "remove",
@@ -29,18 +28,23 @@
     "access": "public"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.14.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^3.0.1",
-    "jest": "^24.8.0",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1"
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.4",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-tsc": "^1.2.0",
+    "husky": "^4.2.5",
+    "jest": "^25.5.4",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@fcostarodrigo/walk": "^4.0.1"
+    "@fcostarodrigo/walk": "^4.1.0",
+    "yargs": "^15.3.1"
   }
 }

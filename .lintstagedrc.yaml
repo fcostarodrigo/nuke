@@ -1,0 +1,6 @@
+"*.{yaml,yml,json,md}":
+  - prettier --write
+
+"*.{js,jsx,mjs}":
+  - eslint src --fix
+  - jest --findRelatedTests
