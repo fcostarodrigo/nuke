@@ -1,6 +1,6 @@
 {
   "name": "@fcostarodrigo/nuke",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Remove files and folders recursively",
   "main": "src/nuke.js",
   "scripts": {
