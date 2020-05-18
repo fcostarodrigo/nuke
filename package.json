@@ -1,6 +1,6 @@
 {
-  "name": "nuke",
-  "version": "2.1.0",
+  "name": "@fcostarodrigo/nuke",
+  "version": "2.1.1",
   "description": "Remove files and folders recursively",
   "main": "src/nuke.js",
   "scripts": {
@@ -21,9 +21,9 @@
   "author": "Rodrigo Fernandes da Costa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fcostarodrigo/rfc-nuke/issues"
+    "url": "https://github.com/fcostarodrigo/nuke/issues"
   },
-  "homepage": "https://github.com/fcostarodrigo/rfc-nuke#readme",
+  "homepage": "https://github.com/fcostarodrigo/nuke#readme",
   "publishConfig": {
     "access": "public"
   },
