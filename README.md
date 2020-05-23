@@ -55,6 +55,8 @@ nuke(pathToDelete);
 
 Returns a promise that resolves with nothing after the path has been deleted.
 
+[Changelog](CHANGELOG.md)
+
 ## License
 
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
