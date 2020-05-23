@@ -14,10 +14,15 @@ npm install @fcostarodrigo/nuke
 
 ## Usage
 
-### In terminal
+### CLI
+
+```bash
+npm install -g @fcostarodrigo/nuke
+nuke --help
+```
 
 ```
-cli <pathToDelete>
+nuke <pathToDelete>
 
 Positionals:
   pathToDelete  String with the path to delete                          [string]
