@@ -32,7 +32,7 @@ Options:
   --version  Show version number                                       [boolean]
 ```
 
-### As a library
+### Lib
 
 ```javascript
 const nuke = require("@fcostarodrigo/nuke");
@@ -48,16 +48,10 @@ main();
 ## Documentation
 
 ```javascript
-nuke(pathToDelete, walk, unlink, rmdir);
+nuke(pathToDelete);
 ```
 
 `pathToDelete`: Path with folder or file to delete.
-
-`walk`: Optional function to transverse the file system, defaults to `@fcostarodrigo/walk`.
-
-`unlink`: Optional function to remove files, defaults to `fs.promises.unlink`.
-
-`rmdir`: Optional function to remove folders, defaults to `fs.promises.rmdir`.
 
 Returns a promise that resolves with nothing after the path has been deleted.
 

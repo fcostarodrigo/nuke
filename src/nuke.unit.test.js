@@ -1,46 +1,36 @@
+/** @typedef {{promises: {unlink: jest.Mock, rmdir: jest.Mock}}} mockedFs */
+
+const walk = /** @type {jest.Mock} */ (require("@fcostarodrigo/walk"));
+const fs = /** @type {mockedFs} */ (/** @type {unknown} */ (require("fs")));
 const nuke = require("./nuke");
+
+jest.mock("@fcostarodrigo/walk", () => jest.fn());
+jest.mock("fs", () => ({ promises: { unlink: jest.fn(), rmdir: jest.fn() } }));
 
 describe("nuke", () => {
   it("should throw the error thrown by walk", () => {
     const error = new Error();
-    async function* walk() {
-      yield "path";
+    walk.mockImplementationOnce(() => {
       throw error;
-    }
+    });
 
-    return expect(nuke(".", walk)).rejects.toBe(error);
+    return expect(nuke(".")).rejects.toBe(error);
   });
 
   it("should throw the error thrown by unlink", () => {
     const error = new Error();
-    async function* walk() {
-      yield "path";
-    }
-    async function unlink() {
-      throw error;
-    }
+    walk.mockReturnValueOnce(["path"]);
+    fs.promises.unlink.mockRejectedValueOnce(error);
 
-    return expect(nuke(".", walk, unlink)).rejects.toBe(error);
+    return expect(nuke(".")).rejects.toBe(error);
   });
 
   it("should throw the error thrown by rmdir", () => {
     const error = new Error();
-    async function* walk() {
-      yield "path";
-    }
-    async function unlink() {
-      /** @type {NodeJS.ErrnoException} */
-      const notDirectoryError = {
-        code: "EISDIR",
-        name: "Error",
-        message: "EISDIR: illegal operation on a directory, unlink 'path'",
-      };
-      throw notDirectoryError;
-    }
-    async function rmdir() {
-      throw error;
-    }
+    walk.mockReturnValueOnce(["path"]);
+    fs.promises.unlink.mockRejectedValueOnce({ code: "EISDIR" });
+    fs.promises.rmdir.mockRejectedValueOnce(error);
 
-    return expect(nuke(".", walk, unlink, rmdir)).rejects.toBe(error);
+    return expect(nuke(".")).rejects.toBe(error);
   });
 });
