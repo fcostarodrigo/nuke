@@ -21,6 +21,7 @@ describe("nuke", () => {
     const error = new Error();
     walk.mockReturnValueOnce(["path"]);
     fs.promises.unlink.mockRejectedValueOnce(error);
+    fs.promises.rmdir.mockRejectedValueOnce(error);
 
     return expect(nuke(".")).rejects.toBe(error);
   });

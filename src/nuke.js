@@ -17,11 +17,7 @@ async function nuke(root) {
     try {
       await fs.promises.unlink(file);
     } catch (error) {
-      if (error.code === "EISDIR") {
-        await fs.promises.rmdir(file);
-      } else {
-        throw error;
-      }
+      await fs.promises.rmdir(file);
     }
   }
 }
